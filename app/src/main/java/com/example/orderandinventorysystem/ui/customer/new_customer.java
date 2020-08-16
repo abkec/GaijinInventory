@@ -122,7 +122,7 @@ public class new_customer extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Please fill up the error field", Toast.LENGTH_SHORT);
                 boolean nameValidate = false, ICValidate = false, emailValidate = false, phoneValidate = false, mobileValidate = false, postCodeValidate = false, cityValidate = false, stateValidate = false;
 
-                if (custName.getText().toString().isEmpty() || custIC.getText().toString().isEmpty() || custEmail.getText().toString().isEmpty() || companyPhone.getText().toString().isEmpty() || custMobile.getText().toString().isEmpty() || companyName.getText().toString().isEmpty() || custAddress.getText().toString().isEmpty()) {
+                if (custName.getText().toString().isEmpty() || custIC.getText().toString().isEmpty() || custEmail.getText().toString().isEmpty() || companyPhone.getText().toString().isEmpty() || custMobile.getText().toString().isEmpty() || companyName.getText().toString().isEmpty() || custAddress.getText().toString().isEmpty() || postCode.getText().toString().isEmpty() || city.getText().toString().isEmpty() || state.getText().toString().isEmpty()) {
 
                     if (custName.getText().toString().isEmpty())
                         custName.setError("Please enter this field");
@@ -160,61 +160,71 @@ public class new_customer extends AppCompatActivity {
 
                     if (!custName.getText().toString().matches("[a-zA-Z ]+")) {
                         custName.setError("Only A-Z allow");
+                        toast.show();
                     } else {
                         nameValidate = true;
                     }
 
                     if (!custIC.getText().toString().matches("^[0-9]*$")) {
                         custIC.setError("IC No. only contain 0-9");
+                        toast.show();
                     } else if (!custIC.getText().toString().matches("^(\\d{12})$")) {
                         custIC.setError("IC No. have 12 digit");
+                        toast.show();
                     } else {
                         ICValidate = true;
                     }
 
                     if (!custEmail.getText().toString().matches("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")) {
                         custEmail.setError("example@gmail.com");
+                        toast.show();
                     } else {
                         emailValidate = true;
                     }
 
                     if (!companyPhone.getText().toString().matches("^[0-9]*$")) {
                         companyPhone.setError("Enter your company Phone No. without (-)");
+                        toast.show();
                     } else if (!companyPhone.getText().toString().matches("^(\\d{9}|\\d{10}|\\d{11}|\\d{12})$")) {
                         companyPhone.setError("phone No. should be 9-12 digit");
+                        toast.show();
                     } else {
                         phoneValidate = true;
                     }
 
                     if (!custMobile.getText().toString().matches("^[0-9]*$")) {
                         custMobile.setError("Enter your Mobile No. without (-)");
+                        toast.show();
                     } else if (!custMobile.getText().toString().matches("^(\\d{10}|\\d{11}|\\d{12})$")) {
                         custMobile.setError("phone No. should be 10-12 digit");
+                        toast.show();
                     } else {
                         mobileValidate = true;
                     }
 
                     if (!city.getText().toString().matches("[a-zA-Z ]+")) {
                         city.setError("Only A-Z allow");
+                        toast.show();
                     } else {
                         cityValidate = true;
                     }
 
                     if (!state.getText().toString().matches("[a-zA-Z ]+")) {
                         state.setError("Only A-Z allow");
+                        toast.show();
                     } else {
                         stateValidate = true;
                     }
 
                     if (!postCode.getText().toString().matches("^[0-9]*$")) {
                         postCode.setError("Only 0-9 allow");
+                        toast.show();
                     } else if (!postCode.getText().toString().matches("^(\\d{5})$")) {
                         postCode.setError("post code have 5 digit");
+                        toast.show();
                     } else {
                         postCodeValidate = true;
                     }
-
-                    toast.show();
                 }
 
                 if (nameValidate == true && ICValidate == true && emailValidate == true && phoneValidate == true && mobileValidate == true && postCodeValidate == true && cityValidate == true && stateValidate == true) {

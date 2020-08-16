@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,18 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.orderandinventorysystem.ConnectionPhpMyAdmin;
-import com.example.orderandinventorysystem.Model.Customer;
 import com.example.orderandinventorysystem.Model.Vendor;
 import com.example.orderandinventorysystem.R;
-import com.example.orderandinventorysystem.ui.customer.CustomerMain;
-import com.example.orderandinventorysystem.ui.customer.new_customer;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.concurrent.ExecutionException;
 
-public class add_new_vendor extends AppCompatActivity {
+public class edit_vendor extends AppCompatActivity {
 
     EditText vendorName;
     EditText vendorIC;
@@ -40,29 +34,25 @@ public class add_new_vendor extends AppCompatActivity {
     EditText city;
     EditText state;
 
-    String latestID2;
+    String vendorID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_vendor);
+
         Toolbar toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("New Vendor");
+        getSupportActionBar().setTitle("Edit Vendor");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        vendorName = findViewById(R.id.text_vendor_name_input);
-        vendorIC = findViewById(R.id.text_vendor_ic_input);
-        vendorCompName = findViewById(R.id.text_companyName_input);
-        vendorEmail = findViewById(R.id.text_email_input);
-        vendorPhone = findViewById(R.id.text_phone_input);
-        vendorMobile = findViewById(R.id.text_mobile_input);
-        vendorAddress = findViewById(R.id.text_vendor_address_input);
-        postCode = findViewById(R.id.text_vendor_postCode_input);
-        city = findViewById(R.id.text_vendor_city_input);
-        state = findViewById(R.id.text_vendor_state_input);
+        Intent intent = getIntent();
+        String intentVendorID = intent.getStringExtra("VendorID");
+        vendorID = intentVendorID;
 
+        RetrieveVendor retrieveVendor = new RetrieveVendor(vendorID);
+        retrieveVendor.execute("");
 
     }
 
@@ -177,32 +167,19 @@ public class add_new_vendor extends AppCompatActivity {
                     } else {
                         postCodeValidate = true;
                     }
-
                 }
 
                 if (nameValidate == true && ICValidate == true && emailValidate == true && phoneValidate == true && mobileValidate == true && postCodeValidate == true && cityValidate == true && stateValidate == true) {
                     //constructor
                     Vendor ven = new Vendor("0", vendorName.getText().toString(), vendorIC.getText().toString(), vendorCompName.getText().toString(), vendorEmail.getText().toString(), vendorPhone.getText().toString(), vendorMobile.getText().toString(), vendorAddress.getText().toString(), state.getText().toString(), city.getText().toString(), postCode.getText().toString(), "Available");
-                    AddVendor addVendor = new AddVendor(ven);
-                    addVendor.execute("");
+                    UpdateVendor updateVendor = new UpdateVendor(ven);
+                    updateVendor.execute("");
+                    setResult(6);
+                    finish();
 
-                    String str_result = "h";
-                    try {
-                        str_result = new RetrieveVendorID().execute().get();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    this.finish();
-
-                    RetrieveVendorID retrieveVendorID = new RetrieveVendorID();
-                    retrieveVendorID.execute("");
-                    Intent intent = new Intent(this, VendorMain.class);
-                    intent.putExtra("VendorID", latestID2);
-                    startActivity(intent);
                     return true;
                 }else {
+
                     toast.show();
                 }
             }
@@ -227,9 +204,13 @@ public class add_new_vendor extends AppCompatActivity {
         return true;
     }
 
-    public class RetrieveVendorID extends AsyncTask<String,String,String> {
+    public class RetrieveVendor extends AsyncTask<String,String,String> {
 
-        RetrieveVendorID() {
+        Vendor ven;
+        String id;
+
+        RetrieveVendor(String id) {
+            this.id = id;
         }
 
         String checkConnection = "";
@@ -250,12 +231,12 @@ public class add_new_vendor extends AppCompatActivity {
                     checkConnection = "Please check your internet connection.";
                 } else {
 
-                    String query = " SELECT venID FROM VENDOR ORDER BY venID DESC LIMIT 1";
+                    String query = " SELECT * FROM VENDOR WHERE venID = '" + vendorID + "'";
                     Statement stmt = con.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
 
                     if(rs.next()){
-                        latestID2 = rs.getString(1);
+                        ven = new Vendor(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12)) ;
                     }
 
                     Log.d("Success", "Done");
@@ -274,14 +255,37 @@ public class add_new_vendor extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+
+            vendorName = findViewById(R.id.text_vendor_name_input);
+            vendorIC = findViewById(R.id.text_vendor_ic_input);
+            vendorCompName = findViewById(R.id.text_companyName_input);
+            vendorEmail = findViewById(R.id.text_email_input);
+            vendorPhone = findViewById(R.id.text_phone_input);
+            vendorMobile = findViewById(R.id.text_mobile_input);
+            vendorAddress = findViewById(R.id.text_vendor_address_input);
+            postCode = findViewById(R.id.text_vendor_postCode_input);
+            city = findViewById(R.id.text_vendor_city_input);
+            state = findViewById(R.id.text_vendor_state_input);
+
+            vendorName.setText(ven.getVenName());
+            vendorIC.setText(ven.getVenIC());
+            vendorCompName.setText(ven.getCompanyName());
+            vendorEmail.setText(ven.getEmail());
+            vendorPhone.setText(ven.getPhone());
+            vendorMobile.setText(ven.getMobile());
+            vendorAddress.setText(ven.getAddress());
+            state.setText(ven.getState());
+            city.setText(ven.getCity());
+            postCode.setText(ven.getPostcode());
+
         }
     }
 
-    public class AddVendor extends AsyncTask<String,String,String> {
+    public class UpdateVendor extends AsyncTask<String,String,String> {
 
         Vendor vendor;
 
-        AddVendor(Vendor vendor) {
+        UpdateVendor(Vendor vendor) {
 
             this.vendor = vendor;
         }
@@ -303,40 +307,21 @@ public class add_new_vendor extends AppCompatActivity {
                 if (con == null) {
                     checkConnection = "No";
                 } else {
-                    String query = "SELECT * FROM VENDOR ORDER BY venID DESC LIMIT 1";
-                    Statement stmt = con.createStatement();
-                    ResultSet rs = stmt.executeQuery(query);
-                    String latestID;
 
-                    if (rs.next()) {
-                        latestID = rs.getString(1);
-                        int numID = Integer.parseInt(latestID.substring(3,8)) + 1;
-                        if (numID < 10)
-                            latestID = "VE-0000" + Integer.toString(numID);
-                        else if (numID < 100)
-                            latestID = "VE-000" + Integer.toString(numID);
-                        else if (numID < 1000)
-                            latestID = "VE-00" + Integer.toString(numID);
-                        else if (numID < 10000)
-                            latestID = "VE-0" + Integer.toString(numID);
-                        else if (numID < 100000)
-                            latestID = "VE-" + Integer.toString(numID);
+                  String query = "UPDATE VENDOR SET venName = '" + vendor.getVenName()+ "'," +
+                          "venIC = '" + vendor.getVenIC() + "'," +
+                          "venCompanyName = '" + vendor.getCompanyName() + "',"+
+                          "email = '" + vendor.getEmail()+ "',"+
+                          "phone = '" + vendor.getPhone() + "'," +
+                          "mobile = '" + vendor.getMobile()+ "',"+
+                          "address = '" + vendor.getAddress() + "',"+
+                          "state = '" + vendor.getState()+ "',"+
+                          "city = '" + vendor.getCity() + "',"+
+                          "postCode = '" + vendor.getPostcode()+ "'" +
+                          "WHERE venID = '" + vendorID + "'";
 
-                        Log.d("ID", latestID);
-                    }
-
-                    else {
-                        latestID = "VE-00001";
-                        Log.d("ID", latestID);
-                    }
-
-                    query = "INSERT INTO VENDOR VALUES('" + latestID + "', '" + vendor.getVenName() + "', '" +
-                            vendor.getVenIC() + "', '" + vendor.getCompanyName() + "', '" + vendor.getEmail() + "', '" +
-                            vendor.getPhone() + "', '" + vendor.getMobile() + "', '" + vendor.getAddress() + "', '" +
-                            vendor.getState() + "', '" + vendor.getCity() + "', '" + vendor.getPostcode() + "','Available')";
-
-                    stmt = con.createStatement();
-                    stmt.executeUpdate(query);
+                   Statement stmt = con.createStatement();
+                   stmt.executeUpdate(query);
 
                     checkConnection = "Yes";
                     isSuccess = true;
@@ -354,7 +339,7 @@ public class add_new_vendor extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
 
-            Toast.makeText(add_new_vendor.this, "Vendor added.", Toast.LENGTH_LONG).show();
+            Toast.makeText(edit_vendor.this, "Vendor edited.", Toast.LENGTH_LONG).show();
         }
     }
 

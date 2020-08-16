@@ -64,6 +64,13 @@ public class HomeThree extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        setResult(123);
+        this.finish();
+
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_3);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)

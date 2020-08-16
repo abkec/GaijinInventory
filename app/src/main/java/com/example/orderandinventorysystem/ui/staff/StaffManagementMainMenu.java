@@ -60,6 +60,13 @@ public class StaffManagementMainMenu extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        setResult(123);
+        this.finish();
+
+    }
+
 
     public void openAddStaff(){
         Intent intent = new Intent(this,addStaff.class);

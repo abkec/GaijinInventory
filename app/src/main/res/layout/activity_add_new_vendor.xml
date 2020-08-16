@@ -21,159 +21,282 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.invoice.add_new_invoice"
-    android:layout_marginTop="?attr/actionBarSize">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey_background_layout">
+        android:layout_height="match_parent"
+        tools:context=".ui.invoice.add_new_invoice"
+        android:layout_marginTop="?attr/actionBarSize">
 
-        <TextView
-            android:id="@+id/group_invoice_info"
-            android:layout_width="0dp"
-            android:layout_height="520dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_vendor_name_title"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="24dp"
-            android:text="Vendor Name *"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/group_invoice_info"
-            app:layout_constraintTop_toTopOf="@+id/group_invoice_info" />
+            android:background="@color/grey_background_layout">
 
-        <EditText
-            android:id="@+id/text_vendor_name_input"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="Vendor Name"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_vendor_name_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_vendor_name_title" />
+            <TextView
+                android:id="@+id/group_invoice_info"
+                android:layout_width="0dp"
+                android:layout_height="1020dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_companyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Company Name *"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/text_customer_name_input"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_vendor_name_input"
-            app:layout_constraintTop_toBottomOf="@+id/text_vendor_name_input" />
+            <TextView
+                android:id="@+id/text_vendor_name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="24dp"
+                android:text="Vendor Name *"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/group_invoice_info"
+                app:layout_constraintTop_toTopOf="@+id/group_invoice_info" />
 
-        <EditText
-            android:id="@+id/text_companyName_input"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:hint="Company Name"
-            app:layout_constraintEnd_toEndOf="@+id/text_companyName"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_companyName"
-            app:layout_constraintTop_toBottomOf="@+id/text_companyName" />
+            <EditText
+                android:id="@+id/text_vendor_name_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Vendor Name"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_name_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_name_title" />
 
-        <TextView
-            android:id="@+id/text_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Email"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/text_companyName_input"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_companyName_input"
-            app:layout_constraintTop_toBottomOf="@+id/text_companyName_input" />
+            <TextView
+                android:id="@+id/text_vendor_ic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Vendor IC *"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_name_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_name_input" />
 
-        <EditText
-            android:id="@+id/text_email_input"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="Email Address"
-            app:layout_constraintEnd_toEndOf="@+id/text_email"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_email"
-            app:layout_constraintTop_toBottomOf="@+id/text_email" />
+            <EditText
+                android:id="@+id/text_vendor_ic_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Vendor IC"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_ic_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_ic_title" />
 
-        <TextView
-            android:id="@+id/text_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Phone"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/text_email_input"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_email_input"
-            app:layout_constraintTop_toBottomOf="@+id/text_email_input" />
+            <TextView
+                android:id="@+id/text_companyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Company Name *"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_ic_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_ic_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_ic_input" />
 
-        <EditText
-            android:id="@+id/text_phone_input"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="Phone Number"
-            app:layout_constraintEnd_toEndOf="@+id/text_phone"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_phone"
-            app:layout_constraintTop_toBottomOf="@+id/text_phone" />
+            <EditText
+                android:id="@+id/text_companyName_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Company Name"
+                app:layout_constraintEnd_toEndOf="@+id/text_companyName"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_companyName"
+                app:layout_constraintTop_toBottomOf="@+id/text_companyName" />
 
-        <TextView
-            android:id="@+id/text_mobile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Mobile"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/text_phone_input"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_phone_input"
-            app:layout_constraintTop_toBottomOf="@+id/text_phone_input" />
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_companyName_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_companyName_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_companyName_input" />
 
-        <EditText
-            android:id="@+id/text_mobile_input"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="Mobile Number"
-            app:layout_constraintEnd_toEndOf="@+id/text_mobile"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/text_mobile"
-            app:layout_constraintTop_toBottomOf="@+id/text_mobile" />
+            <EditText
+                android:id="@+id/text_email_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Email Address"
+                app:layout_constraintEnd_toEndOf="@+id/text_email"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_email"
+                app:layout_constraintTop_toBottomOf="@+id/text_email" />
+
+            <TextView
+                android:id="@+id/text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Phone"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_email_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_email_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_email_input" />
+
+            <EditText
+                android:id="@+id/text_phone_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Phone Number"
+                app:layout_constraintEnd_toEndOf="@+id/text_phone"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_phone"
+                app:layout_constraintTop_toBottomOf="@+id/text_phone" />
+
+            <TextView
+                android:id="@+id/text_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Mobile"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_phone_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_phone_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_phone_input" />
+
+            <EditText
+                android:id="@+id/text_mobile_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Mobile Number"
+                app:layout_constraintEnd_toEndOf="@+id/text_mobile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_mobile"
+                app:layout_constraintTop_toBottomOf="@+id/text_mobile" />
+
+            <TextView
+                android:id="@+id/text_vendor_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Address"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_mobile_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_mobile_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_mobile_input" />
+
+            <EditText
+                android:id="@+id/text_vendor_address_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Address"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_address"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_address"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_address" />
+
+            <TextView
+                android:id="@+id/text_vendor_postCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Post Code"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_address_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_address_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_address_input" />
+
+            <EditText
+                android:id="@+id/text_vendor_postCode_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="Post Code"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_postCode"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_postCode"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_postCode" />
+
+            <TextView
+                android:id="@+id/text_vendor_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="City"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_postCode_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_postCode_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_postCode_input" />
+
+            <EditText
+                android:id="@+id/text_vendor_city_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="City"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_city"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_city"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_city" />
+
+            <TextView
+                android:id="@+id/text_vendor_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="State"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_city_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_city_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_city_input" />
+
+            <EditText
+                android:id="@+id/text_vendor_state_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="State"
+                app:layout_constraintEnd_toEndOf="@+id/text_vendor_state"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_vendor_state"
+                app:layout_constraintTop_toBottomOf="@+id/text_vendor_state" />
 
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+    </ScrollView>
 
 </RelativeLayout>

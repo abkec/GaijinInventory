@@ -19,6 +19,7 @@ import com.example.orderandinventorysystem.HomeOne;
 import com.example.orderandinventorysystem.HomeThree;
 import com.example.orderandinventorysystem.HomeTwo;
 import com.example.orderandinventorysystem.R;
+import com.example.orderandinventorysystem.ui.invoice.InvoiceMainFragment;
 import com.example.orderandinventorysystem.ui.invoice.add_new_invoice;
 
 import java.sql.Connection;
@@ -36,8 +37,8 @@ String name;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        et = (EditText) findViewById(R.id.username);
-        et1 = (EditText) findViewById(R.id.editTextTextPassword);
+        et = findViewById(R.id.username);
+        et1 = findViewById(R.id.editTextTextPassword);
         et.setHintTextColor(Color.WHITE);
         et1.setHintTextColor(Color.WHITE);
 
@@ -51,6 +52,16 @@ String name;
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 123) {
+            Toast.makeText(loginStaff.this, "App Closed", Toast.LENGTH_LONG).show();
+            finish();
+        }
+    }
+
 
     public class CheckLogin extends AsyncTask<String,String,String> {
 
@@ -111,38 +122,39 @@ String name;
             return checkConnection;
         }
 
+
         @Override
         protected void onPostExecute(String s) {
 
                if(clerk) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, HomeOne.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
 
                } else if (stockManager) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, HomeThree.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
                } else if (admin) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, StaffManagementMainMenu.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
                }
                else if (delivery) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, HomeTwo.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
                }
                else if (check) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, StaffManagementMainMenu.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
                }
 
                else if (check2) {
+                   Toast.makeText(loginStaff.this, "Login successfully", Toast.LENGTH_LONG).show();
                    Intent intent = new Intent(loginStaff.this, HomeOne.class);
-
-                   startActivity(intent);
+                   startActivityForResult(intent, 66);
                } else {
                    Toast.makeText(loginStaff.this, "Invalid staff ID or password. Please try again.", Toast.LENGTH_LONG).show();
                }

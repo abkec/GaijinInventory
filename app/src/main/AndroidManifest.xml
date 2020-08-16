@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.orderandinventorysystem">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@drawable/inventory"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/inventory"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.dashboard.sales_report"></activity>
         <activity
             android:name=".ui.staff.loginStaff"
             android:label="@string/app_name"
@@ -23,26 +25,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeOne"/>
-        <activity android:name=".HomeTwo"/>
-        <activity android:name=".HomeThree"/>
-        <activity android:name=".ui.purchase.edit_purchase_orders"/>
-        <activity android:name=".ui.customer.CustomerMain"/>
-        <activity android:name=".ui.customer.edit_customer"/>
-        <activity android:name=".ui.item.ItemMain"/>
-        <activity android:name=".ui.item.edit_item"/>
-        <activity android:name=".ui.item.add_item"/>
-        <activity android:name=".ui.pack.add_shipment"/>
-        <activity android:name=".ui.sales.SalesOrderMainFragment"/>
-        <activity android:name=".ui.invoice.InvoiceMainFragment"/>
-        <activity android:name=".ui.payment.PaymentMain"/>
-        <activity android:name=".ui.pack.PackageMain"/>
-        <activity android:name=".ui.invoice.add_new_invoice"/>
-        <activity android:name=".ui.purchase.PurchaseMain"/>
-        <activity android:name=".ui.vendor.VendorMain"/>
-        <activity android:name=".ui.purchase.add_new_purchase"/>
-        <activity android:name=".ui.vendor.add_new_vendor"/>
-        <activity android:name=".ui.sales.add_sales_line_item"/>
+        <activity android:name=".ui.vendor.edit_vendor"/>
+        <activity android:name=".HomeOne" />
+        <activity android:name=".HomeTwo" />
+        <activity android:name=".HomeThree" />
+        <activity android:name=".ui.purchase.edit_purchase_orders" />
+        <activity android:name=".ui.customer.CustomerMain" />
+        <activity android:name=".ui.customer.edit_customer" />
+        <activity android:name=".ui.item.ItemMain" />
+        <activity android:name=".ui.item.edit_item" />
+        <activity android:name=".ui.item.add_item" />
+        <activity android:name=".ui.pack.add_shipment" />
+        <activity android:name=".ui.sales.SalesOrderMainFragment" />
+        <activity android:name=".ui.invoice.InvoiceMainFragment" />
+        <activity android:name=".ui.payment.PaymentMain" />
+        <activity android:name=".ui.pack.PackageMain" />
+        <activity android:name=".ui.invoice.add_new_invoice" />
+        <activity android:name=".ui.purchase.PurchaseMain" />
+        <activity android:name=".ui.vendor.VendorMain" />
+        <activity android:name=".ui.purchase.add_new_purchase" />
+        <activity android:name=".ui.vendor.add_new_vendor" />
+        <activity android:name=".ui.sales.add_sales_line_item" />
         <activity android:name=".ui.sales.add_sales_orders" />
         <activity android:name=".ui.bill.add_new_bill" />
         <activity android:name=".ui.staff.addStaff" />
@@ -50,10 +53,10 @@
         <activity android:name=".ui.staff.updateStaff" />
         <activity android:name=".ui.staff.StaffManagementMainMenu" />
         <activity android:name=".ui.staff.viewStaff" />
-        <activity android:name=".ui.sales.edit_sales_orders"/>
-        <activity android:name=".ui.invoice.edit_new_invoice"/>
-        <activity android:name=".ui.bill.BillMain"/>
-        <activity android:name=".ui.customer.new_customer"/>
+        <activity android:name=".ui.sales.edit_sales_orders" />
+        <activity android:name=".ui.invoice.edit_new_invoice" />
+        <activity android:name=".ui.bill.BillMain" />
+        <activity android:name=".ui.customer.new_customer" />
     </application>
 
 </manifest>
