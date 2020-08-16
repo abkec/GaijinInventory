@@ -28,14 +28,46 @@
     android:layout_height="match_parent"
     >
 
+    <!--    <Button-->
+<!--        android:id="@+id/update_staff"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginBottom="196dp"-->
+<!--        android:background="@drawable/staffbutton"-->
+<!--        android:drawableTop="@drawable/update_user"-->
+<!--        android:fontFamily="sans-serif-condensed"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:text="@string/update_staff"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/delete_staff"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/delete_staff"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginBottom="196dp"-->
+<!--        android:background="@drawable/staffbutton"-->
+<!--        android:drawableTop="@drawable/ic_delete"-->
+<!--        android:fontFamily="sans-serif-condensed"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:text="@string/delete_staff"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
     <Button
         android:id="@+id/add_staff"
 
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/staffbutton"
         android:drawableTop="@drawable/add_user"
         android:fontFamily="sans-serif-condensed"
@@ -43,82 +75,44 @@
         android:text="@string/add_staff"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/update_staff"
-        app:layout_constraintEnd_toStartOf="@+id/view_staff"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/view_staff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.495" />
 
     <Button
         android:id="@+id/view_staff"
         android:layout_width="170dp"
         android:layout_height="150dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="72dp"
         android:background="@drawable/staffbutton"
         android:drawableTop="@drawable/view_staff"
         android:fontFamily="sans-serif-condensed"
         android:paddingTop="10dp"
-        android:text="@string/view_staff"
+        android:text="Manage Staff"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/delete_staff"
+        app:layout_constraintBottom_toTopOf="@+id/angry_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/update_staff"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="196dp"
-        android:background="@drawable/staffbutton"
-        android:drawableTop="@drawable/update_user"
-        android:fontFamily="sans-serif-condensed"
-        android:paddingTop="10dp"
-        android:text="@string/update_staff"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/delete_staff"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/delete_staff"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="196dp"
-        android:background="@drawable/staffbutton"
-        android:drawableTop="@drawable/ic_delete"
-        android:fontFamily="sans-serif-condensed"
-        android:paddingTop="10dp"
-        android:text="@string/delete_staff"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/angry_btn"
 
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="72dp"
 
-        android:background="@drawable/logout"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="#FF0000"
         android:text="Log Out"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_staff"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

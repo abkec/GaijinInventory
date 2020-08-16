@@ -25,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.staff.StaffMain"/>
         <activity android:name=".ui.vendor.edit_vendor"/>
         <activity android:name=".HomeOne" />
         <activity android:name=".HomeTwo" />

@@ -41,21 +41,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+
+    <TextView
         android:id="@+id/update_add_staff_id"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="19097"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/update_staff_title" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:background="#20000000"
-        android:drawableLeft="@drawable/staff_id"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="NIC / Employee ID"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="Staff ID Number: "
+        android:textColor="#000"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_staff_title" />
 
@@ -151,25 +159,42 @@
         android:textColor="#FFFFFF"
         android:background="#1D45B3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/update_clear_button"
+        app:layout_constraintEnd_toStartOf="@+id/update_cancel_button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_spin_department"
+        app:layout_constraintTop_toBottomOf="@+id/edit_staff_pw"
         app:layout_constraintVertical_bias="0.07" />
 
     <Button
-        android:id="@+id/update_clear_button"
+        android:id="@+id/update_cancel_button"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="88dp"
-        android:text="@string/clear_but"
+        android:text="Cancel"
         android:textColor="#FFFFFF"
         android:background="#1D45B3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_spin_department"
+        app:layout_constraintTop_toBottomOf="@+id/edit_staff_pw"
         app:layout_constraintVertical_bias="0.07" />
+
+    <EditText
+        android:id="@+id/edit_staff_pw"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#20000000"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/password"
+        app:layout_constraintTop_toBottomOf="@+id/update_drop_down" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,15 +3,16 @@ package com.example.orderandinventorysystem.Model;
 import java.io.Serializable;
 
 public class Staff implements Serializable {
-    private String staffID, staffName,  staffMobile, department;
+    private String staffID, staffName,  staffMobile, department,password;
     private double staffPay;
-    public Staff (String staffID, String staffName, String staffMobile, double staffPay, String department)
+    public Staff(String staffID, String staffName, String staffMobile, double staffPay, String department, String password)
     {
         this.staffID = staffID;
         this.staffName = staffName;
         this.staffMobile = staffMobile;
         this.staffPay = staffPay;
         this.department = department;
+        this.password = password;
     }
 
     public String getStaffID() {return staffID;}
@@ -33,5 +34,9 @@ public class Staff implements Serializable {
     public String getDepartment(){return department;}
 
     public void setDepartment(String department){this.department = department;}
+
+    public String getPassword(){return password;}
+
+    public void setPassword(String password){this.password = password;}
 
 }

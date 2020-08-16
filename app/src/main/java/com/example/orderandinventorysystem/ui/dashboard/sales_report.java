@@ -433,7 +433,13 @@ public class sales_report extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            pdfGenerate();
+            if(invList.size()==0) {
+
+                Toast toast = Toast.makeText(getApplicationContext(),"No invoices found within the selected dates.", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else
+                pdfGenerate();
         }
     }
 }

@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/staff_title" />
 
     <EditText
-        android:id="@+id/staff_name"
+        android:id="@+id/add_staff_name"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/add_staff_id" />
 
     <EditText
-        android:id="@+id/mobile_no"
+        android:id="@+id/add_mobile_no"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -98,10 +98,10 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/staff_name" />
+        app:layout_constraintTop_toBottomOf="@+id/add_staff_name" />
 
     <EditText
-        android:id="@+id/pay"
+        android:id="@+id/add_staff_pay"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobile_no" />
+        app:layout_constraintTop_toBottomOf="@+id/add_mobile_no" />
 
     <Spinner
         android:id="@+id/spin_department"
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pay" />
+        app:layout_constraintTop_toBottomOf="@+id/add_staff_pay" />
 
     <ImageView
         android:id="@+id/drop_down"
@@ -146,34 +146,49 @@
         app:srcCompat="@drawable/drop_down" />
 
     <Button
-        android:id="@+id/sumbit_but"
+        android:id="@+id/submit_but"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="30dp"
+        android:background="#1D45B3"
         android:text="@string/submit_but"
         android:textColor="#FFFFFF"
-        android:background="#1D45B3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/clear_button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_department"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintTop_toBottomOf="@+id/staff_pw"
+        app:layout_constraintVertical_bias="0.17" />
 
     <Button
         android:id="@+id/clear_button"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginEnd="104dp"
+        android:background="#1D45B3"
         android:text="@string/clear_but"
         android:textColor="#FFFFFF"
-        android:background="#1D45B3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin_department"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintTop_toBottomOf="@+id/staff_pw"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <EditText
+        android:id="@+id/staff_pw"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#20000000"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/password"
+        app:layout_constraintTop_toBottomOf="@+id/spin_department" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
