@@ -1,5 +1,7 @@
 package com.example.orderandinventorysystem.ui.vendor;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import com.example.orderandinventorysystem.Model.Vendor;
 import com.example.orderandinventorysystem.R;
 import com.example.orderandinventorysystem.ui.customer.CustomerMain;
 import com.example.orderandinventorysystem.ui.customer.edit_customer;
+import com.example.orderandinventorysystem.ui.item.ItemMain;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -70,9 +73,34 @@ public class VendorMain extends AppCompatActivity{
 // Handle item selection
         switch (item.getItemId()) {
             case R.id.delete: {
-                DeleteVend deleteVend = new DeleteVend(venID);
-                deleteVend.execute("");
-                this.finish();
+
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setMessage("Confirm delete?");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                DeleteVend deleteVend = new DeleteVend(venID);
+                                deleteVend.execute("");
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
                 return true;
             }
             case R.id.edit_sales: {

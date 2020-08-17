@@ -34,6 +34,7 @@ import com.example.orderandinventorysystem.Model.Pack;
 import com.example.orderandinventorysystem.Model.Sales;
 import com.example.orderandinventorysystem.Model.Shipment;
 import com.example.orderandinventorysystem.R;
+import com.example.orderandinventorysystem.ui.item.ItemMain;
 import com.example.orderandinventorysystem.ui.sales.ItemOrderListAdapter;
 import com.example.orderandinventorysystem.ui.sales.SalesOrderMainFragment;
 import com.example.orderandinventorysystem.ui.sales.add_sales_orders;
@@ -380,25 +381,47 @@ public class PackageMain extends AppCompatActivity {
 
             case R.id.delete: {
 
-                if (shipCheck) {
-                    DeleteShipment deleteShipment = new DeleteShipment();
-                    deleteShipment.execute("");
-                    setResult(3);
-                    finish();
-                    Intent intent = new Intent(this, PackageMain.class);
-                    intent.putExtra("Package", intentPackageID);
-                    startActivityForResult(intent, 3);
-                }
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setMessage("Confirm delete?");
+                builder1.setCancelable(true);
 
-                else {
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
 
-                    DeletePack deletePack = new DeletePack();
-                    deletePack.execute("");
-                    setResult(3);
-                    finish();
+                                if (shipCheck) {
+                                    DeleteShipment deleteShipment = new DeleteShipment();
+                                    deleteShipment.execute("");
+                                    setResult(3);
+                                    finish();
+                                    Intent intent = new Intent(PackageMain.this, PackageMain.class);
+                                    intent.putExtra("Package", intentPackageID);
+                                    startActivityForResult(intent, 3);
+                                }
 
-                }
+                                else {
 
+                                    DeletePack deletePack = new DeletePack();
+                                    deletePack.execute("");
+                                    setResult(3);
+                                    finish();
+
+                                }
+                                dialog.cancel();
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
 
                 return true;
             }

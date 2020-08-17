@@ -1,5 +1,7 @@
 package com.example.orderandinventorysystem.ui.sales;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,6 +33,7 @@ import com.example.orderandinventorysystem.Model.Sales;
 import com.example.orderandinventorysystem.ui.invoice.InvoiceMainFragment;
 import com.example.orderandinventorysystem.ui.invoice.add_new_invoice;
 import com.example.orderandinventorysystem.ui.pack.PackageMain;
+import com.example.orderandinventorysystem.ui.purchase.PurchaseMain;
 import com.google.android.material.tabs.TabLayout;
 import com.example.orderandinventorysystem.R;
 
@@ -136,9 +139,34 @@ public class SalesOrderMainFragment extends AppCompatActivity {
             }
 
             case R.id.delete: {
-                DeleteSales deleteSales = new DeleteSales(sales.getSalesID());
-                deleteSales.execute("");
-                this.finish();
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setMessage("Confirm delete?");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                DeleteSales deleteSales = new DeleteSales(sales.getSalesID());
+                                deleteSales.execute("");
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+
                 return true;
             }
 

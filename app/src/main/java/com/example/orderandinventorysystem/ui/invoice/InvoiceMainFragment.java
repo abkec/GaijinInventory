@@ -30,6 +30,7 @@ import com.example.orderandinventorysystem.Model.Invoice;
 import com.example.orderandinventorysystem.Model.ItemOrder;
 import com.example.orderandinventorysystem.Model.Sales;
 import com.example.orderandinventorysystem.R;
+import com.example.orderandinventorysystem.ui.customer.CustomerMain;
 import com.example.orderandinventorysystem.ui.pack.PackageMain;
 import com.example.orderandinventorysystem.ui.payment.PaymentMain;
 import com.example.orderandinventorysystem.ui.sales.SalesOrderMainFragment;
@@ -111,10 +112,34 @@ public class InvoiceMainFragment extends AppCompatActivity {
             }
 
             case R.id.delete: {
-                setResult(3);
-                DeleteInvoice deleteInvoice = new DeleteInvoice(intentInvoiceID);
-                deleteInvoice.execute("");
-                this.finish();
+
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setMessage("Confirm delete?");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                setResult(3);
+                                DeleteInvoice deleteInvoice = new DeleteInvoice(intentInvoiceID);
+                                deleteInvoice.execute("");
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
                 return true;
             }
 
