@@ -6,18 +6,8 @@ public class Item implements Serializable {
 
     private String itemName, itemID, itemUnit, itemDesc, itemStatus;
     private double sellPrice, costPrice;
-    private int quantity = 0, quantityPHY = 0;
+    private int quantity, quantityPHY;
 
-    public Item(String itemID, String itemName,String itemUnit, String itemDesc, double sellPrice, double costPrice, String itemStatus) {
-
-        this.itemID = itemID;
-        this.itemName = itemName;
-        this.itemUnit = itemUnit;
-        this.itemDesc = itemDesc;
-        this.sellPrice = sellPrice;
-        this.costPrice = costPrice;
-        this.itemStatus = itemStatus;
-    }
 
     public Item(String itemID, String itemName,String itemUnit, String itemDesc, int quantity, int quantityPHY,double sellPrice, double costPrice, String itemStatus) {
 

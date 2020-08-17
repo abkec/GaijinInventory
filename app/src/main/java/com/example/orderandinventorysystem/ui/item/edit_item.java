@@ -28,7 +28,8 @@ public class edit_item extends AppCompatActivity {
     EditText itemDesc;
     EditText sellPrice;
     EditText costPrice;
-
+    EditText quantity;
+    EditText quantity2;
     String itemID;
 
     @Override
@@ -62,10 +63,13 @@ public class edit_item extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.save: {
 
-                if(itemName.getText().toString().isEmpty() || itemUnit.getText().toString().isEmpty() || itemDesc.getText().toString().isEmpty() || sellPrice.getText().toString().isEmpty() || costPrice.getText().toString().isEmpty()){
+                if(quantity.getText().toString().isEmpty() || itemName.getText().toString().isEmpty() || itemUnit.getText().toString().isEmpty() || itemDesc.getText().toString().isEmpty() || sellPrice.getText().toString().isEmpty() || costPrice.getText().toString().isEmpty()){
 
                     if(itemName.getText().toString().isEmpty())
                         itemName.setError("Please enter this field");
+
+                    if(quantity.getText().toString().isEmpty())
+                        quantity.setError("Please enter this field");
 
                     if(itemUnit.getText().toString().isEmpty())
                         itemUnit.setError("Please enter this field");
@@ -110,7 +114,7 @@ public class edit_item extends AppCompatActivity {
                 }else {
 
                     //constructor
-                    Item item1 = new Item("0", itemName.getText().toString(), itemUnit.getText().toString(), itemDesc.getText().toString(), Double.parseDouble(sellPrice.getText().toString()), Double.parseDouble(costPrice.getText().toString()), "Available");
+                    Item item1 = new Item("0", itemName.getText().toString(), itemUnit.getText().toString(), itemDesc.getText().toString(),Integer.parseInt(quantity2.getText().toString()), Integer.parseInt(quantity.getText().toString()), Double.parseDouble(sellPrice.getText().toString()), Double.parseDouble(costPrice.getText().toString()), "Available");
                     UpdateItem updateItem = new UpdateItem(item1);
                     updateItem.execute("");
                     setResult(3);
@@ -193,12 +197,16 @@ public class edit_item extends AppCompatActivity {
 
             //Log.d("hahaha", item.getItemName());
 
+            quantity = findViewById(R.id.quantity_input);
+            quantity2 = findViewById(R.id.quantity_input_2);
             itemName = findViewById(R.id.text_item_name_input);
             itemUnit = findViewById(R.id.text_item_unit_input);
             itemDesc = findViewById(R.id.text_item_description_input);
             sellPrice = findViewById(R.id.text_selling_price_input);
             costPrice = findViewById(R.id.text_purchase_price_input);
 
+            quantity2.setText(Integer.toString(item.getQuantity()));
+            quantity.setText(Integer.toString(item.getQuantityPHY()));
             itemName.setText(item.getItemName());
             itemUnit.setText(item.getItemUnit());
             itemDesc.setText(item.getItemDesc());
@@ -239,7 +247,9 @@ public class edit_item extends AppCompatActivity {
                             " itemUnit = '" + item.getItemUnit()  + "'," +
                             " itemDesc = '" + item.getItemDesc() + "'," +
                             " sellingPrice = '" + item.getSellPrice() + "'," +
-                            " purchasePrice = '" + item.getCostPrice() + "'" +
+                            " purchasePrice = '" + item.getCostPrice() + "'," +
+                            " itemQuantity = '" + item.getQuantity() + "'," +
+                            " itemQuantityPHY = '" + item.getQuantityPHY() + "'"+
                             " WHERE itemID ='" + itemID + "'";
 
                     Statement stmt = con.createStatement();

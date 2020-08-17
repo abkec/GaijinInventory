@@ -30,7 +30,8 @@ public class add_item extends AppCompatActivity {
     EditText itemDesc;
     EditText sellPrice;
     EditText costPrice;
-
+    EditText quantity;
+    EditText quantity2;
     String latestID2;
 
     @Override
@@ -49,6 +50,8 @@ public class add_item extends AppCompatActivity {
         itemDesc = findViewById(R.id.text_item_description_input);
         sellPrice = findViewById(R.id.text_selling_price_input);
         costPrice = findViewById(R.id.text_purchase_price_input);
+        quantity = findViewById(R.id.quantity_input);
+        quantity2 = findViewById(R.id.quantity_input_2);
 
         itemUnit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -103,6 +106,7 @@ public class add_item extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override
@@ -112,10 +116,16 @@ public class add_item extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(getApplicationContext(),"Please fill up the error field",Toast.LENGTH_SHORT);
 
-                if(itemName.getText().toString().isEmpty() || itemUnit.getText().toString().isEmpty() || itemDesc.getText().toString().isEmpty() || sellPrice.getText().toString().isEmpty() || costPrice.getText().toString().isEmpty()){
+                if(quantity2.getText().toString().isEmpty()||quantity.getText().toString().isEmpty()|| itemName.getText().toString().isEmpty() || itemUnit.getText().toString().isEmpty() || itemDesc.getText().toString().isEmpty() || sellPrice.getText().toString().isEmpty() || costPrice.getText().toString().isEmpty()){
 
                     if(itemName.getText().toString().isEmpty())
                         itemName.setError("Please enter this field");
+
+                    if(quantity.getText().toString().isEmpty())
+                        quantity.setError("Please enter this field");
+
+                    if(quantity2.getText().toString().isEmpty())
+                        quantity2.setError("Please enter this field");
 
                     if(itemUnit.getText().toString().isEmpty())
                         itemUnit.setError("Please enter this field");
@@ -146,7 +156,7 @@ public class add_item extends AppCompatActivity {
                 }else{
 
                     //constructor
-                    Item item1 = new Item("0",itemName.getText().toString(), itemUnit.getText().toString(), itemDesc.getText().toString(), Double.parseDouble(sellPrice.getText().toString()), Double.parseDouble(costPrice.getText().toString()), "Available");
+                    Item item1 = new Item("0",itemName.getText().toString(), itemUnit.getText().toString(), itemDesc.getText().toString(), Integer.parseInt(quantity2.getText().toString()), Integer.parseInt(quantity.getText().toString()) ,Double.parseDouble(sellPrice.getText().toString()), Double.parseDouble(costPrice.getText().toString()), "Available");
                     AddItem addItem = new AddItem(item1);
                     addItem.execute("");
 

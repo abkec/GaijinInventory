@@ -35,7 +35,7 @@
             <TextView
                 android:id="@+id/group_new_item_info"
                 android:layout_width="0dp"
-                android:layout_height="420dp"
+                android:layout_height="620dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:background="@android:color/white"
@@ -70,6 +70,59 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_item_name" />
 
             <TextView
+                android:id="@+id/text_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Physical Quantity *"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/text_item_name_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_item_name_input"
+                app:layout_constraintTop_toBottomOf="@+id/text_item_name_input" />
+
+            <EditText
+                android:id="@+id/quantity_input"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Item Physical Quantity"
+                app:layout_constraintEnd_toEndOf="@+id/text_quantity"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_quantity"
+                app:layout_constraintTop_toBottomOf="@+id/text_quantity" />
+
+            <TextView
+                android:id="@+id/text_quantity_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Accounting Quantity *"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/quantity_input"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/quantity_input"
+                app:layout_constraintTop_toBottomOf="@+id/quantity_input" />
+
+            <EditText
+                android:id="@+id/quantity_input_2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Item Accounting Quantity"
+                app:layout_constraintEnd_toEndOf="@+id/text_quantity_2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_quantity_2"
+                app:layout_constraintTop_toBottomOf="@+id/text_quantity_2" />
+
+
+            <TextView
                 android:id="@+id/text_item_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,10 +130,10 @@
                 android:text="Unit *"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/text_item_name_input"
+                app:layout_constraintEnd_toEndOf="@+id/quantity_input_2"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/text_item_name_input"
-                app:layout_constraintTop_toBottomOf="@+id/text_item_name_input" />
+                app:layout_constraintStart_toStartOf="@+id/quantity_input_2"
+                app:layout_constraintTop_toBottomOf="@+id/quantity_input_2" />
 
             <EditText
                 android:id="@+id/text_item_unit_input"
@@ -93,6 +146,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/text_item_unit"
                 app:layout_constraintTop_toBottomOf="@+id/text_item_unit" />
+
+
 
             <TextView
                 android:id="@+id/text_item_description"
