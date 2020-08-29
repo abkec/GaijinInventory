@@ -198,7 +198,7 @@ public class sales_report extends AppCompatActivity {
         paint.setTextSize(45);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3);
-        canvas.drawText("Gaijin Company", 945, 245, paint);
+        canvas.drawText("Millos Trading", 945, 245, paint);
         paint.setStyle(Paint.Style.FILL);
 
         //draw Gaijin Logo
@@ -214,27 +214,27 @@ public class sales_report extends AppCompatActivity {
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         paint.setTextSize(20);
-        canvas.drawText("Gaijin Company", 100,225, paint);
+        canvas.drawText("Millos Trading", 100,225, paint);
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setTextSize(20);
-        canvas.drawText("No.4 Taman Nanas,", 100,265, paint);        // Remember change Y - axis
+        canvas.drawText("123, Hill Street,", 100,265, paint);        // Remember change Y - axis
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setTextSize(20);
-        canvas.drawText("14535 Kedah, Malaysia", 100,305, paint);
+        canvas.drawText("31000 Perak, Malaysia", 100,305, paint);
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setTextSize(20);
-        canvas.drawText("Email : gaijin_888@gmail.com", 100,345, paint);
+        canvas.drawText("Email : millos_trading@gmail.com", 100,345, paint);
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setTextSize(20);
-        canvas.drawText("Contact : 012-4428888", 100,385, paint);
+        canvas.drawText("Contact : 605-5342353", 100,385, paint);
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
