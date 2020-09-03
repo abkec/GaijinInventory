@@ -82,9 +82,7 @@ boolean check = false;
                     if(check){
                         Toast.makeText(getApplicationContext(), "Same ID detected!", Toast.LENGTH_LONG).show();
                     } else{
-                        Intent intent = new Intent(addStaff.this, StaffManagementMainMenu.class);
-                        intent.putExtra("Staff", staff);
-                        startActivity(intent);
+                        
                         Toast.makeText(getApplicationContext(),"Successfully added to database!",Toast.LENGTH_LONG).show();
                         finish();
                     }

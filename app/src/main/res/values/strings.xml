@@ -28,10 +28,10 @@
 
 
     <string-array name="staff_dpt">
-        <item>Stock Manager</item>
+        <item>Human Resource Staff</item>
         <item>Delivery Staff</item>
         <item>Clerk</item>
-        <item> Stock Management Staff</item>
+        <item>Stock Management Staff</item>
     </string-array>
 
     <string name="submit_but">Submit</string>
